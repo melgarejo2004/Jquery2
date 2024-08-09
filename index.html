@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 20px;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Ejemplo de jQuery</h1>
+    <button id="toggleBtn">Mostrar/Ocultar Caja</button>
+    <button id="animateBtn">Animar Caja</button>
+    <input type="text" id="inputText" placeholder="Escribe algo">
+    <button id="addTextBtn">Añadir Texto</button>
+    <div id="box">Haz clic</div>
+
+    <script>
+        $(document).ready(function() {
+            // Mostrar/Ocultar la caja al hacer clic en el botón
+            $('#toggleBtn').click(function() {
+                $('#box').toggle();
+            });
+
+            // Animar la caja al hacer clic en el botón
+            $('#animateBtn').click(function() {
+                $('#box').animate({
+                    width: '200px',
+                    height: '200px',
+                    marginLeft: '50px'
+                }, 1000, function() {
+                    // Al terminar la animación, cambiar el color de fondo
+                    $(this).css('background-color', 'red');
+                });
+            });
+
+            // Añadir texto dentro de la caja desde el input
+            $('#addTextBtn').click(function() {
+                var inputText = $('#inputText').val();
+                $('#box').text(inputText);
+            });
+
+            // Cambiar el color de fondo de la caja al hacer clic en ella
+            $('#box').click(function() {
+                $(this).css('background-color', 'green');
+            });
+        });
+    </script>
+</body>
+</html>
